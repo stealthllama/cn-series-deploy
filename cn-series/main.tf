@@ -20,6 +20,16 @@ terraform {
 
 provider helm {}
 
+data "terraform_remote_state" "vpc" {
+  backend = "remote"
+  config = {
+    organization = "panlabs"
+    workspaces = {
+      name = "aks-deploy"
+    }
+  }
+}
+
 resource "helm_release" "cn-series" {
   name       = "cn-series-deploy"
   repository = "https://paloaltonetworks.github.io/cn-series-helm/"

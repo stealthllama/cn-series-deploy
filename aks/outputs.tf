@@ -26,6 +26,6 @@ output "az_cluster_endpoint" {
   value = azurerm_kubernetes_cluster.default.fqdn
 }
 
-# output "az_cluster_kubeconfig" {
-#   value = azurerm_kubernetes_cluster.default.kube_config_raw
-# }
+output "az_cluster_kubeconfig" {
+  value = azurerm_kubernetes_cluster.default.kube_config_raw
+}
